@@ -7,6 +7,10 @@ import ErrorScreen from './components/ErrorScreen';
 import './App.css';
 
 export default function App() {
+  const BreakThings = () => {
+    throw Error("We intentionally broke something")
+  }
+
   return (
     <SiteLayout menu={
       <ErrorBoundary fallback={ErrorScreen}>
@@ -16,7 +20,9 @@ export default function App() {
     >
       <div>
         <ErrorBoundary fallback={ErrorScreen}>
-          <Callout>{'<Callout />'}</Callout>
+          <Callout>{'<Callout />'}
+            {/* <BreakThings /> */}
+          </Callout>
         </ErrorBoundary>
 
         <ErrorBoundary fallback={ErrorScreen}>
