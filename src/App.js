@@ -1,16 +1,29 @@
 import React from 'react';
 import SiteLayout from './components/SiteLayout';
 import Callout from './components/Callout';
+import ErrorBoundary from './components/ErrorBoundary';
+import ErrorScreen from './components/ErrorScreen';
+
 import './App.css';
 
 export default function App() {
   return (
-    <SiteLayout menu={<p>{'<Menu />'}</p>}>
-      <>
-        <Callout>{'<Callout />'}</Callout>
-        <h1>{'<Contents />'}</h1>
-        <p>This is a main part of the example layuot</p>
-      </>
+    <SiteLayout menu={
+      <ErrorBoundary fallback={ErrorScreen}>
+        <p>{'<Menu />'}</p>
+      </ErrorBoundary>
+    }
+    >
+      <div>
+        <ErrorBoundary fallback={ErrorScreen}>
+          <Callout>{'<Callout />'}</Callout>
+        </ErrorBoundary>
+
+        <ErrorBoundary fallback={ErrorScreen}>
+          <h1>{'<Contents />'}</h1>
+          <p>This is a main part of the example layuot</p>
+        </ErrorBoundary>
+      </div>
     </SiteLayout>
   );
 }
