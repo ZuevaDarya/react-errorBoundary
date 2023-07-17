@@ -1,0 +1,19 @@
+.site-container{ 
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  min-height: 100vh;
+}
+
+.site-container__menu{
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.site-container__childern{
+  background-color: grey;
+  padding: 15px;
+  font-size: 20px;
+}
